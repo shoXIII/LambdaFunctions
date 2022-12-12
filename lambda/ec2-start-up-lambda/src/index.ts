@@ -1,4 +1,4 @@
-import AWS from "aws-sdk";
+import { EC2 } from "@aws-sdk/client-ec2";
 
 const INSTANCE_ID = process.env['INSTANCE_ID'];
 if (INSTANCE_ID === undefined) {
@@ -9,14 +9,14 @@ if (INSTANCE_REGION === undefined) {
     throw new Error('INSTANCE_REGION not found')
 }
 
-const startInstance = (ec2: AWS.EC2) => {
+const startInstance = (ec2: EC2) => {
     const startInstanceParam = {
         InstanceIds: [
             INSTANCE_ID
         ]
     }
     return new Promise((resolve, reject) => {
-        ec2.startInstances(startInstanceParam, (err, data) => {
+        ec2.startInstances(startInstanceParam, (err: any, data: any) => {
             if (err) {
                 console.log(err, err.stack);
                 reject(err);
@@ -29,10 +29,8 @@ const startInstance = (ec2: AWS.EC2) => {
 }
 exports.handler = async () => {
     console.log(`try to start up instance \n INSTANCE_ID: ${INSTANCE_ID}`);
-    AWS.config.update({
-        region: INSTANCE_REGION
-    })
-    const ec2 = new AWS.EC2({
+    const ec2 = new EC2({
+        region: INSTANCE_REGION,
         apiVersion: 'latest'
     });
     await startInstance(ec2);

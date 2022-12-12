@@ -5,8 +5,8 @@
     "tsc": "tsc"
   },
   "devDependencies": {
+    "@aws-sdk/client-ec2": "^3.226.0",
     "@types/node": "^18.11.9",
-    "aws-sdk": "^2.1258.0",
     "typescript": "^4.9.3"
   }
 }
