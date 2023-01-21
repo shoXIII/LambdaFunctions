@@ -28,7 +28,7 @@ const startInstance = (ec2: EC2) => {
     });
 }
 exports.handler = async () => {
-    console.log(`try to start up instance \n INSTANCE_ID: ${INSTANCE_ID}`);
+    console.log(`try to start instance \n INSTANCE_ID: ${INSTANCE_ID}`);
     const ec2 = new EC2({
         region: INSTANCE_REGION,
         apiVersion: 'latest'
