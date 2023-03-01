@@ -1,0 +1,12 @@
+{
+  "name": "slack-bot-post-man-from-sns-lambda",
+  "version": "0.1.0",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.110",
+    "@types/node": "^18.11.9",
+    "typescript": "^4.9.3"
+  }
+}
