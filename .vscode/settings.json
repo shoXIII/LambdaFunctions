@@ -1,0 +1,8 @@
+{
+    "deno.enable": true,
+    "deno.unstable": true,
+    "deno.enablePaths": [
+        "./denoLambda"
+    ],
+    "deno.path": "/home/linuxbrew/.linuxbrew/bin/deno"
+}
