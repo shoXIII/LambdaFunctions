@@ -9,24 +9,15 @@ if (INSTANCE_REGION === undefined) {
     throw new Error('INSTANCE_REGION not found')
 }
 
-const startInstance = (ec2: EC2) => {
+const startInstance = async (ec2: EC2) => {
     const startInstanceParam = {
         InstanceIds: [
             INSTANCE_ID
         ]
     }
-    return new Promise((resolve, reject) => {
-        ec2.startInstances(startInstanceParam, (err: any, data: any) => {
-            if (err) {
-                console.log(err, err.stack);
-                reject(err);
-                return
-            } 
-            console.log(data);
-            resolve;
-        });
-    });
+    return await ec2.startInstances(startInstanceParam);
 }
+
 exports.handler = async () => {
     console.log(`try to start instance \n INSTANCE_ID: ${INSTANCE_ID}`);
     const ec2 = new EC2({
@@ -34,4 +25,5 @@ exports.handler = async () => {
         apiVersion: 'latest'
     });
     await startInstance(ec2);
+    console.log(`finish to start instance \n INSTANCE_ID: ${INSTANCE_ID}`);
 };
