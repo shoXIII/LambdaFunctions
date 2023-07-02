@@ -2,5 +2,34 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
+  ],
+  "timezone": "Asia/Tokyo",
+  "prHourlyLimit": 0,
+  "labels": [
+    "renovate"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "enabledManagers": [
+    "npm"
+  ],
+  "schedule": [
+    "first day on the month"
+  ],
+  "assignees": [
+    "shoXIII"
+  ],
+  "baseBranches": [
+    "main"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "@types/node"
+      ],
+      "matchUpdateTypes": "major",
+      "enabled": "false"
+    }
   ]
 }
