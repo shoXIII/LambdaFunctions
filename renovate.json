@@ -11,9 +11,6 @@
   "lockFileMaintenance": {
     "enabled": true
   },
-  "enabledManagers": [
-    "npm"
-  ],
   "schedule": [
     "on the first day of the month"
   ],
