@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "timezone": "Asia/Tokyo",
   "prHourlyLimit": 0,
@@ -9,7 +9,10 @@
     "renovate"
   ],
   "lockFileMaintenance": {
-    "enabled": true
+    "enabled": true,
+    "schedule": [
+      "before 4am on the first day of the month"
+    ]
   },
   "schedule": [
     "before 4am on the first day of the month"
@@ -26,7 +29,7 @@
         "@types/node"
       ],
       "matchUpdateTypes": "major",
-      "enabled": "false"
+      "enabled": false
     }
   ]
 }
